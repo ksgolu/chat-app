@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="chat.css">
+    <!--external Scripts and links-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</head>
+<body>
+
+ 
+<main id="main">
+    <section id="sideBar">
+
+    </section>
+    <section id="message">
+        <article id="messageSpace"> 
+            
+            <!--All the dynamic chat messages are hold here-->
+        </article>
+
+        <article id="inputBar">
+
+            <form action="" id="form">
+                <input type="text" name="txt" id="text" placeholder="Type your message" required>
+                <input type="submit" value="send" id="sendBtn" class="button">
+               
+            </form>    
+            <input  type="button" value="sharelocation" id="share-location" class="button">
+
+        </article>  
+    </section>
+
+    
+</main>
+<!--Mustache templets targeted by chat.js file-. And assuming the below script as html, so it can nrender in html file-->
+  <script id="message-template" type="text/html">
+    <!--template injection name-->
+    <div class="messageBackground">
+        <p><span>{{username}} {{time}}</span> <br>{{message}} <span>{{delivered}}</span></p> <!--this name will be a key for the object. see line 15 @ chat.js-->
+    </div>
+       
+    
+</script>
+
+<script id="location-template" type="text/html">
+    <div class="messageBackground">
+    <p><span>{{username}} {{time}}</span> <br><a href="{{url}}" target="_blank">My current location</a> <span>{{delivered}}</span></p>
+    </div>
+</script>
+
+<script type="text/html" id="room-template">
+        <h2 class="roomName">{{roomName}}</h2>
+        <h3 class="user">USERS</h3>
+        <ul class="user">
+        <!-- using template loop  -->
+        {{#user}}  <!--starting loop-->
+            <li> {{username}} </li><!--accessing username property of user object-->
+        {{/user}} <!--ending loop-->
+        </ul>
+
+</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,62 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(12, 1, 22, 0.856);
+   font-size: medium;
+   
+    
+}
+.join
+{
+   
+    margin: auto;
+    padding: 20px;
+    margin-top: 150px;
+    z-index: 0.5;
+    box-shadow:black 5px 5px 10px ;
+    height: 50vh;
+    width:20%;
+    background-color: whitesmoke;
+}
+h1{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: brown;
+    font-size: 3em;
+    font-weight: bolder;
+}
+.join form
+{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.join form input
+{
+    margin: 0 0px 15px 0;
+    
+    height: 25px;
+    width: 100%;
+    /* padding: 5px; */
+}
+
+
+label
+{
+    margin-top: 10px; ;
+color: rgba(0, 0, 0, 0.582)
+
+}
+#button
+{
+    margin-top: 20px;
+    height:40px;
+    background-color: rgba(0, 0, 128, 0.637);
+   border: none;
+   color: white;
+    font-size: 1.2em;
+}
