@@ -99,11 +99,13 @@ io.on('connection',(socket)=>{
         {
             //second parameter always catched in callback by listener
             io.to(user.room).emit('message',generateMessage(`${user.username}  left`,user.username));
+            io.to(user.room).emit('roomData',{
+                room:user.room,
+                userList: getUserInRoom(user.room)
+            });
         }
-        io.to(user.room).emit('roomData',{
-            room:user.room,
-            userList: getUserInRoom(user.room)
-        });
+           
+       
         
     })
 });
